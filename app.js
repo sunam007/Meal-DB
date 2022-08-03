@@ -9,9 +9,10 @@ const searchFood = () => {
     .then((data) => {
       // console.log(data);
       const { meals } = data;
+      const searchResult = document.getElementById("search-result");
+      /* Clearing search result using innerHTML set to empty string ("") */
+      searchResult.innerHTML = "";
       for (const meal of meals) {
-        // console.log(meal);
-        const searchResult = document.getElementById("search-result");
         const div = document.createElement("div");
         div.classList.add("col");
         div.innerHTML = `
@@ -47,6 +48,7 @@ const loadMealDetail = (mealId) => {
 const displayDetail = (meal) => {
   // console.log(meal);
   const mealDetail = document.getElementById("meal-details");
+  mealDetail.innerHTML = "";
   const div = document.createElement("div");
   div.classList.add("row");
   div.classList.add("g-0");
